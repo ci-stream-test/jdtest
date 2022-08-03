@@ -1,0 +1,19 @@
+version: "v2.0"
+name: "baaba"
+label: []
+stages:
+- name: "stage-2"
+  label:
+  - "Build"
+  jobs:
+    job_xss:
+      name: "构建环境-LINUX"
+      runs-on:
+        pool-name: "docker"
+        container:
+          image: "mirrors.tencent.com/ci/tlinux3_ci:2.0.0"
+        needs: {}
+      steps:
+      - name: "Bash"
+        run: |-
+          echo "aa"
